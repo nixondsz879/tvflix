@@ -1,0 +1,23 @@
+.d-flex {
+    display: flex;
+
+    &.align-center {
+        align-items: center;
+    }
+
+    &.justify-center {
+        justify-content: center;
+    }
+
+    &.justify-space-between {
+        justify-content: space-between;
+    }
+}
+
+.clearFix {
+    clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $otherFont;
+}

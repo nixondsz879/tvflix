@@ -1,0 +1,143 @@
+.moviesListView {
+    .searchArea {
+        height: 500px;
+
+        @include bp(tablet-sm) {
+            height: 400px;
+        }
+    }
+    
+    .container {
+        margin: -300px auto 200px;
+    }
+
+    .actions {
+        position: relative;
+        display: flex;
+
+        > span {
+            font-family: $otherFont;
+            color: color(secondary, base);
+            font-weight: 700;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            margin-bottom: 15px;
+
+            li {
+                padding: 0 10px;
+                display: flex;
+                font-size: 14px;
+                cursor: pointer;
+
+                label {
+                    cursor: pointer;
+                }
+
+                .material-icons {
+                   margin-right: 3px;   
+                   transform: translateY(3px);  
+                }
+
+                &.rating {
+                    .material-icons {
+                        font-size: 20px;
+                    }
+                }
+
+                &.date {
+                    .material-icons {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+                }
+
+                &.title {
+                    .material-icons {
+                        font-size: 20px;
+                        line-height: 22px;
+                    }
+                }
+
+                input {
+                    display: none;
+                }
+
+                &.active {
+                    border-bottom: 1px solid color(secondary, base);
+                }
+            }
+        }
+    }
+
+    .movieList {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -10px;
+        min-height: 100vh;
+
+        &:after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .movieItem {
+            width: calc(91% / 5);
+            margin: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+            opacity: 1;
+
+            &.slowLoad {
+                opacity: 0;
+            }
+
+            &.partial {
+                opacity: 0.5;
+            }
+
+            @include bp(desktop-sm) {
+                width: calc(91% / 4);
+            }
+
+            @include bp(tablet-sm) {
+                width: calc(88% / 4);
+            }
+
+            @include bp(mobile) {
+                width: calc(91% / 3);
+            }
+
+            @media (max-width: 696px) {
+                width: calc(88% / 3);
+            }
+
+            @include bp(mobile-sm) {
+                width: calc(92% / 2);
+            }
+
+            @media (max-width: 530px) {
+                width: calc(90% / 2);
+            }
+
+            @media (max-width: 429px) {
+                width: calc(89% / 2);
+            }
+
+            @media (max-width: 394px) {
+                width: 100%;
+            }
+
+            .movieCard {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

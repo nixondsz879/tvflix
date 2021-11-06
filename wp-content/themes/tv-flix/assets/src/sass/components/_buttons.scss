@@ -1,0 +1,22 @@
+.btn {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    background-color: #dd003f;
+    padding: 15px;
+    text-align: center;
+    width: 200px;
+    margin: 50px auto 0;
+    font-family: $otherFont;
+    transition: all 0.2s ease-in;
+    box-shadow: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+
+    @include bp(tablet-md) {
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

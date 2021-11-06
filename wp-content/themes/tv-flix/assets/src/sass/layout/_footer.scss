@@ -1,0 +1,33 @@
+section.footer {
+    padding: 30px;
+    text-align: center;
+    background-image: background_url("footer-bg.png");
+    background-repeat: no-repeat;
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(2, 13, 24, 0) -400%, #020d18 120%);
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .footer__logo {
+        img {
+            max-width: 120px;
+        }
+    }
+
+    .footer__copyright {
+        p {
+            font-family: $otherFont;
+            @include font-rem(14px);
+        }
+    }
+}

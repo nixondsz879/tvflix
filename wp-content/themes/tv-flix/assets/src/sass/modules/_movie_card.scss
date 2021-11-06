@@ -1,0 +1,90 @@
+.movieCard {
+    overflow: hidden;
+    position: relative;
+    
+    img {
+        transition: all 0.3s ease-in-out;
+    }
+
+    a {
+        &:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            box-shadow: 4px 4px 55px 40px color(background, base) inset;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+            z-index: 0;
+        }
+
+        .info {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            padding: 30px;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+
+            h4.title {
+                margin: 0 0 5px;
+            }
+        }
+
+        .certification {
+            border: 1px solid #fff;
+            width: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+            color: #fff;
+            border-radius: 3px;
+            padding: 4px;
+            @include font-rem(12px, 18px);
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .genre {
+            @include font-rem(12px, 18px);
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            @include font-rem(14px, 18px);
+
+            .rating {
+                display: flex;
+                align-items: center;
+
+                span {
+                    color: #f5c518;
+                    font-size: 16px;
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+
+    @include bp(tablet-md) {
+        &:hover {
+            a {
+                &:after, .certification, .info {
+                    opacity: 1;
+                }
+            }
+
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

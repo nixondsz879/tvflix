@@ -1,0 +1,140 @@
+.searchArea {
+    position: relative;
+    overflow: hidden;
+    height: 800px;
+
+    @include bp(desktop-sm) {
+        height: 600px;
+    }
+
+    @include bp(mobile) {
+        height: 450px;
+    }
+
+    .searchBlock {
+        @include bp(tablet-sm) {
+            display: none;
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(2, 13, 24, 0) -100%, #020d18 100%);
+    }
+
+}
+
+.searchBlock {
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+    left: 0;
+    right: 0;
+
+    @include bp(desktop-sm) {
+        top: 25%;
+    }
+
+    input, select {
+        background-color: color(background, light);
+        color: #fff;
+        padding: 15px 25px;
+        border: 3px solid color(background, base);
+        @include font-rem(18px);
+        width: 100%;
+        font-family: $otherFont;
+        outline: none;
+
+        @include input-placeholder {
+            color: color(placeholder);
+            opacity: 1;
+        }
+    }
+
+    .types {
+        width: 200px;
+
+        select {
+            border-right: none;
+            padding: 14px 25px;
+        }
+    }
+
+    .searchBar {
+        flex: 1 1 auto;
+        position: relative;
+
+        button.submit {
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            cursor: pointer;
+        }
+    }
+}
+
+.results {
+    background-color: #233a50;
+    border: 3px solid #020d18;
+    margin-top: -3px;
+    position: absolute;
+    width: 100%;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.loading {
+       &:before {
+            content: "";
+            background-image: background_url("loader.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: block;
+            width: 80px;
+            margin: 10px auto;
+            height: 43px;
+        } 
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            a, .no-result {
+                display: flex;
+                padding: 5px 20px;
+
+                &:hover {
+                    background-color: color(background, lighter);
+                }
+
+                img {
+                    width: 30px;
+                    height: auto;
+                    margin-right: 15px;
+                }
+
+                span {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,211 @@
+header.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+
+    * {
+        transition: all 0.3s ease-in-out;
+    }
+
+    > .container {
+        @include bp(tablet-sm) {
+            display: none;
+        }
+    }
+
+    .header__logo {
+        opacity: 0;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        span {
+            font-family: $otherFont;
+            @include font-rem(24px, 24px);
+            letter-spacing: 4px;
+            font-weight: 700;
+            transform: translateY(5px);
+        }
+
+        img {
+            max-width: 60px;
+            width: 100%;
+            display: block;
+            margin-right: 5px;
+        }
+    }
+
+    .header__menu {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-family: $otherFont;
+                    margin: 0 10px;
+
+                    @include bp(tablet-sm) {
+                        margin: 10px;
+                        font-size: 30px;
+                        line-height: 50px;
+                        display: block;
+                    }
+
+                    &:hover, &.active {
+                        color: color(secondary, base);
+                    }
+                }
+            }
+        }
+    }
+
+    .headerSearch {
+        opacity: 0;
+        visibility: hidden;
+        width: 100%;
+        max-width: 630px;
+
+        .container {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        @include bp(tablet-sm) {
+            max-width: 380px;
+        }
+
+        @include bp(mobile) {
+            display: none;
+        }
+
+        .searchBlock {
+            position: static;
+
+            input, select {
+                padding: 10px 15px;
+                border-width: 1px;
+                background-color: #fff;
+                color: #000;
+            }
+
+            select {
+                padding: 9px 15px;
+            }
+
+            .types {
+                width: 150px;
+            }
+        }
+    }
+
+    #stickyHeader {
+        position: fixed;
+        top: -80px;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        transition: all 0.3s ease-in-out;
+        background-color: color(background, light);
+
+        @include bp(tablet-sm) {
+            top: 0;
+        }
+
+        .headerSearch {
+            @include bp(tablet-sm) {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        .header__logo {
+            img {
+                max-width: 45px;
+            }
+
+            span {
+                font-size: 20px;
+            }
+
+            a {
+                margin-top: -10px;
+            }
+        } 
+
+        button.menuToggle {
+            padding: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            color: #fff;
+            font-size: 50px;
+            position: relative;
+            cursor: pointer;
+
+            span {
+                font-size: 40px;
+                transition: all 0.3s ease-in-out;
+                opacity: 1;
+
+                &.inactive {
+                    opacity: 0;
+                }
+
+                &.close-menu {
+                    position: absolute;
+                    left: 0;
+                    top: 6px;
+                }
+            }
+        }
+
+        .header__menu {
+            ul {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                margin: auto;
+                right: 0;
+                justify-content: center;
+                top: 70px;
+                opacity: 0;
+                visibility: hidden;
+
+                @include bp(tablet-sm) {
+                    background-color: color(background, lighter);
+                    height: calc(100% - 58px);
+                    flex-direction: column;
+                    position: fixed;
+                    top: 58px;
+                }
+
+                &.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+
+        &.sticky {
+            @include bp(tablet-md) {
+                top: 0;
+
+                .headerSearch {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+        
+}
